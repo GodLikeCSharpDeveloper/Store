@@ -1,0 +1,54 @@
+﻿@page "/AdminMenu"
+@using PCStore.Shared
+
+<header class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+        Adding product
+        <div class="row ">
+            <div class="col">
+                <label for="fname"></label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <div class="col">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                </div>
+                <div class="col">
+                    <label for="fname">Last Name</label>
+                    <input type="text" id="fname" name="lastname" placeholder="Your lastname..">
+
+                </div>
+                <div class="col">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                </div>
+                @for (int i = 0; i < Count; i++)
+                {
+                    <AddComponent></AddComponent>
+
+                }
+                <button href="" class="button openbtn" @onclick=@CountM>Add</button>
+            </div>
+
+            <div class="col">
+                2
+            </div>
+            <div class="col">
+                3
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+@code {
+    public int Count = 0;
+    public void CountM()
+    {
+        Count++;
+       
+    }
+
+}

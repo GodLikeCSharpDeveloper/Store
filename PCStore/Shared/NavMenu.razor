@@ -1,39 +1,76 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">PCStore</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container-fluid">
+    <header class="row ">
+        <div class="col  ">
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
+            <button href="" class="button openbtn @(IsOpen ? "change" : "")" @onclick="@expand">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </button>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
+        <div class="col  align-self-center d-flex justify-content-end">
+            <a href=""><i class="fa fa-2x fa-user  "></i></a>
+            <button href="" class="dropbtn @(IsOpen ? "cartOpened": "")" @onclick="@expandcart">
+                <i href="" class="fa fa-2x fa-shopping-cart">
+                    <div class="dropdown-content" style=@cartstyle>
+                        <a href="#" >Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#" >Link 3</a>
+                    </div>
+                </i>
+            </button>
+
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
+    </header>
+</div>
+<div id="mySidepanel" class="sidepanel" style=@mystyle>
+
+    <a href="#" @onclick="@expand">About</a>
+    <a href="#" @onclick="@expand">Services</a>
+    <a href="#" @onclick="@expand">Clients</a>
+    <a href="AdminMenu" @onclick="@expand">Clients</a>
+</div>
+<div class="container">
 </div>
 
 @code {
-    private bool collapseNavMenu = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    public void expand()
     {
-        collapseNavMenu = !collapseNavMenu;
+        ToggleButton();
+        sidebarExp();
+
+    }
+    private bool IsOpen { get; set; } = false;
+    string mystyle="";
+    private void sidebarExp()
+    {
+        if (IsOpen)
+            mystyle = "width:250px";
+        else mystyle = "width:0px";
+    }
+    private void ToggleButton()
+    {
+
+        IsOpen = !IsOpen;
+    }
+    public void expandcart()
+    {
+        ToggleCart();
+        cartExp();
+
+    }
+    string cartstyle="";
+    private bool cartOpen { get; set; } = false;
+    private void ToggleCart()
+    {
+        cartOpen = !cartOpen;
+    }
+    private void cartExp()
+    {
+        if (cartOpen)
+            cartstyle = "opacity: 1;; width:max-content; height:max-content;";
+        else cartstyle = "opacity: 0;; width:0px; height:0px";
     }
 }

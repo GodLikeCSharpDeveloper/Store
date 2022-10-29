@@ -1,0 +1,251 @@
+@import '_content/Havit.Blazor.Components.Web.Bootstrap/Havit.Blazor.Components.Web.Bootstrap.bundle.scp.css';
+
+/* _content/PCStore/Shared/AddComponent.razor.rz.scp.css */
+input[type=text][b-1o68zi6vxb], select[b-1o68zi6vxb] {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit][b-1o68zi6vxb] {
+    width: 70%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    input[type=submit]:hover[b-1o68zi6vxb] {
+        background-color: #45a049;
+    }
+/* _content/PCStore/Shared/AdminMenu.razor.rz.scp.css */
+input[type=text][b-vvypei1e48], select[b-vvypei1e48] {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit][b-vvypei1e48] {
+    width: 70%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    input[type=submit]:hover[b-vvypei1e48] {
+        background-color: #45a049;
+    }
+
+.button[b-vvypei1e48] {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    
+
+
+    background-color: white; /* Green */
+    border: 2px solid black;
+   
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+}
+
+    .button:hover[b-vvypei1e48] {
+        background-color: #555555;
+        color: white;
+    }
+/* _content/PCStore/Shared/MainLayout.razor.rz.scp.css */
+
+
+/* _content/PCStore/Shared/NavMenu.razor.rz.scp.css */
+header[b-r0lbsa672z] {
+    background-color: #111;
+    color: rgb(129, 230, 243);
+}
+
+.button[b-r0lbsa672z] {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+    z-index: 3;
+    position: relative;
+}
+
+
+.bar1[b-r0lbsa672z], .bar2[b-r0lbsa672z], .bar3[b-r0lbsa672z] {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1[b-r0lbsa672z] {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2[b-r0lbsa672z] {
+    opacity: 0;
+}
+
+.change .bar3[b-r0lbsa672z] {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+.sidepanel[b-r0lbsa672z] {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidepanel a[b-r0lbsa672z] {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidepanel a:hover[b-r0lbsa672z] {
+            color: #f1f1f1;
+        }
+
+    .sidepanel .closebtn[b-r0lbsa672z] {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+    }
+
+.openbtn[b-r0lbsa672z] {
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+/* .openbtn:hover {
+    background-color:#444;
+  } */
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar[b-r0lbsa672z] {
+        padding-top: 15px;
+    }
+
+        .sidebar a[b-r0lbsa672z] {
+            font-size: 18px;
+        }
+}
+
+.fa[b-r0lbsa672z] {
+    color: white;
+    margin-right: 15px;
+}
+
+.dropbtn[b-r0lbsa672z] {
+    background: none;
+    border: none;
+}
+
+.navbar[b-r0lbsa672z] {
+    overflow: hidden;
+    background-color: #333;
+}
+
+    .navbar a[b-r0lbsa672z] {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+.dropdown[b-r0lbsa672z] {
+    float: left;
+    overflow: hidden;
+}
+
+    .dropdown .dropbtn[b-r0lbsa672z] {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+
+
+.dropdown-content[b-r0lbsa672z] {
+    width: 0px;
+    height: 0px;
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all;
+    transition: 0.5s;
+    direction: rtl;
+    right: 0;
+    left: inherit;
+    opacity: 0;
+    margin-right: 40px;
+}
+
+    .dropdown-content a[b-r0lbsa672z] {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        transition: 0.5s;
+                direction: revert;
+    }
+
+
+        .dropdown-content a:hover[b-r0lbsa672z] {
+            background-color: #ddd;
+        }
+
+.cartOpened[b-r0lbsa672z] {
+    color: red;
+}
