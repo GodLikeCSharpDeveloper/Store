@@ -1,0 +1,98 @@
+﻿@page "/AdminMenu";
+@using PCStore.Shared;
+@using PCStore.Models;
+@using PCStore.Repositories;
+@inject StoreRepository StoreService;
+
+<header class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+        Adding product
+        <div class="row ">
+            <div class="col">
+                <label for="fname"></label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <div class="col">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                </div>
+                <div class="col">
+                    <label for="fname">Last Name</label>
+                    <input type="text" id="fname" name="lastname" placeholder="Your lastname..">
+
+                </div>
+                <div class="col">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>cat Id</th>
+                            <th>cat Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(catObj!=null){
+                        @foreach (var obj in catObj)
+                        {
+                            <tr>
+                                <td>@obj.category_id</td>
+                                <td>@obj.category_name</td>
+                                <td>
+                                    <a class="nav-link" href="EditEmployee/@obj.category_id">
+                                        <span class="oi oi-pencil" aria-hidden="true">Edit</span>
+                                    </a>
+                                    <a class="nav-link" href="Delete/@obj.category_id">
+                                        <span class="oi oi-trash" aria-hidden="true">Delete</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                @for (int i = 0; i < Count; i++)
+                {
+                    <AddComponent></AddComponent>
+
+                }
+                <button href="" class="button openbtn" @onclick=@CountM>Add</button>
+
+            </div>
+
+
+            <div class="col">
+                2
+            </div>
+            <div class="col">
+                3
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+@code {
+    public int Count = 0;
+    public void CountM()
+    {
+        Count++;
+
+    }
+    List<categoryModel> catObj;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            catObj = await StoreService.GetAllAsync();
+        }
+        catch(Exception exception)
+        {
+
+        }
+    }
+}

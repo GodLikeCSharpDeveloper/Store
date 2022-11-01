@@ -1,0 +1,49 @@
+﻿@page "/Delete/{id}"
+@using PCStore.Models
+@using Repositories
+@inject StoreRepository storeServ
+@inject NavigationManager NavigationManager
+<h2>Delete Employee</h2>
+<hr />
+<h3>Are you sure want to delete this?</h3>
+<form>
+    <div class="row">
+        <div class=" col-md-8">
+            <div class="form-group">
+                <label>category Id:</label>
+                <label>@obj.category_id</label>
+            </div>
+            <div class="form-group">
+                <label>category Name:</label>
+                <label>@obj.category_name</label>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="button" class="btn btn-danger" @onclick="@DeleteEmployee" value="Delete" />
+                <input type="button" class="btn btn-primary" @onclick="@Cancel" value="Cancel" />
+            </div>
+        </div>
+    </div>
+</form>
+@code {
+    [Parameter]
+    public string Id { get; set; }
+    categoryModel obj = new categoryModel();
+    protected override async Task OnInitializedAsync()
+    {
+        obj = await Task.Run(() => storeServ.Get(Convert.ToInt32(Id)));
+    }
+    protected async void DeleteEmployee()
+    {
+        await storeServ.Delete(obj);
+        NavigationManager.NavigateTo("AdminMenu");
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("AdminMenu");
+    }
+}
