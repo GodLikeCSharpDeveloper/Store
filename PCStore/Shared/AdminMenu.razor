@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 ﻿@page "/AdminMenu";
 @using PCStore.Shared;
 @using PCStore.Models;
 @using PCStore.Repositories;
 @inject StoreRepository StoreService;
+=======
+﻿@page "/AdminMenu"
+@using PCStore.Shared
+>>>>>>> 08e829bc27e7c8f48bfe9df118c6c2ff3dafa3d5
 
 <header class="container-fluid">
     <div class="row justify-content-center align-items-center">
@@ -26,6 +31,7 @@
                     <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
                 </div>
+<<<<<<< HEAD
                 <table class="table">
                     <thead>
                         <tr>
@@ -53,16 +59,23 @@
                         }
                     </tbody>
                 </table>
+=======
+>>>>>>> 08e829bc27e7c8f48bfe9df118c6c2ff3dafa3d5
                 @for (int i = 0; i < Count; i++)
                 {
                     <AddComponent></AddComponent>
 
                 }
                 <button href="" class="button openbtn" @onclick=@CountM>Add</button>
+<<<<<<< HEAD
 
             </div>
 
 
+=======
+            </div>
+
+>>>>>>> 08e829bc27e7c8f48bfe9df118c6c2ff3dafa3d5
             <div class="col">
                 2
             </div>
@@ -80,6 +93,7 @@
     public void CountM()
     {
         Count++;
+<<<<<<< HEAD
 
     }
     List<categoryModel> catObj;
@@ -95,4 +109,9 @@
 
         }
     }
+=======
+       
+    }
+
+>>>>>>> 08e829bc27e7c8f48bfe9df118c6c2ff3dafa3d5
 }
