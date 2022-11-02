@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PCStore.Models;
+using System.Diagnostics.Metrics;
 
 namespace PCStore.Repositories
 {
@@ -41,6 +44,19 @@ namespace PCStore.Repositories
         {
             _context.Entry(brandmodel).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+        }
+        public async Task<brandsModel[]> AddBrandAsync(String brandName)
+        {
+            brandsModel[] brandsmodel;
+            var brandsName = brandName;
+            SqlParameter param1 = new SqlParameter("@brand_name", brandName);
+          
+
+            brandsmodel = _context.brands.FromSqlRaw
+                        ("ALTER TABLE  ADD @brand_name varchar(50); @brand_name", param1)
+                .ToArray();
+            
+            return brandsmodel;
         }
     }
 }

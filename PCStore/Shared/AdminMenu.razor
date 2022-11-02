@@ -1,5 +1,7 @@
 ﻿@page "/AdminMenu"
+@using PCStore.Models
 @using PCStore.Shared
+@inject Repositories.StoreRepository storerepository
 
 <header class="container-fluid">
     <div class="row justify-content-center align-items-center">
@@ -36,8 +38,46 @@
             </div>
             <div class="col">
                 3
-            </div>
+            </div><table class="table">
+    <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+        <td colspan="5" align="left">
+            Search Customer
+        </td>
+    </tr>
+    <tr>
+        <td>Cust Code:</td>
+        <td>
+            <input type="text" @bind-value="@brandname" />
+        </td>
 
+    
+        <td>
+            <input type="button" class="btn-link" value="Search" @onclick="@searchDetails" />
+        </td>
+    </tr>
+</table>
+            @if(brandsModels!=null){
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Customer Code</th>
+                        <th>Customer Name</th>
+                        <th>Email</th>
+                        <th>Phone No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var forecast in brandsModels)
+                    {
+                        <tr>
+                            <td>@forecast.brand_id</td>
+                            <td>@forecast.brand_name</td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            }
         </div>
 
     </div>
@@ -48,7 +88,18 @@
     public void CountM()
     {
         Count++;
-       
-    }
 
+    }
+    brandsModel[] brandsModels;
+    string brandname="";
+    protected override async Task OnInitializedAsync()
+    {
+        brandsModels = await storerepository.AddBrandAsync(brandname);
+    }
+        
+    //SearchCustomer
+    async Task searchDetails()
+    {
+        brandsModels = await storerepository.AddBrandAsync(brandname);
+    }
 }
