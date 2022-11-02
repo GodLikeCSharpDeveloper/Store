@@ -53,7 +53,7 @@ namespace PCStore.Repositories
           
 
             brandsmodel = _context.brands.FromSqlRaw
-                        ("ALTER TABLE  ADD @brand_name varchar(50); @brand_name", param1)
+                        ("ALTER TABLE brands ADD @brand_name varchar(50); @brand_name", param1)
                 .ToArray();
             
             return brandsmodel;
